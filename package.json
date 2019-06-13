@@ -1,5 +1,16 @@
 {
-  "name": "src",
+  "name": "hexbot-battle",
+  "description": "Small game based on the noops-challenge hexbot API",
+  "homepage": "https://github.com/owner/project#readme",
+  "author": {
+    "name": "Joschua Schneider",
+    "email": "joschua-schneider@web.de",
+    "url": "https://joschuaschneider.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoschuaSchneider/hexbot.git"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
