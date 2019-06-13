@@ -22,4 +22,4 @@ Original hexbot example-repo moved to /hexbot
 
 ---
 
-Built with React
+Built in ~1 Hour using React
