@@ -39,7 +39,7 @@ function Color({ placeholder = false, color, left, right }) {
   )
 }
 
-function RandomColor() {
+function Game() {
   const {
     colorsA,
     colorsB,
@@ -116,7 +116,7 @@ function RandomColor() {
 
 render(
   <GameStateProvider>
-    <RandomColor />
+    <Game />
   </GameStateProvider>,
   document.getElementById("root")
 )
