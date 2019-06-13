@@ -1,7 +1,6 @@
 {
   "name": "hexbot-battle",
   "description": "Small game based on the noops-challenge hexbot API",
-  "homepage": "https://github.com/owner/project#readme",
   "author": {
     "name": "Joschua Schneider",
     "email": "joschua-schneider@web.de",
