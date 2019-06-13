@@ -112,7 +112,7 @@ html, body {
   border-radius: 10px;
   transition: transform .5s;
   transform: scale(1) translateX(0);
-  box-shadow: 3px 3px 0px rgb(65, 65, 65);
+  box-shadow: 3px 3px 0px rgb(29, 29, 29);
 }
 
 .color.left.lower {
