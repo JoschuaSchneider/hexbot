@@ -3,6 +3,18 @@
   box-sizing: border-box;
 }
 
+@keyframes pulsing {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -10,6 +22,9 @@ html, body {
   background: rgb(15, 15, 32);
 }
 
+.game {
+  position: relative;
+}
 
 .info {
   display: flex;
@@ -32,10 +47,33 @@ html, body {
   font-weight: 300;
 }
 
+.status {
+  position: absolute;
+  padding: 10px 20px;
+  color: red;
+  text-align: center;
+  font-size: 2rem;
+  background: rgba(0,0,0,.8);
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  border: 1px solid #272727;
+  border-radius: 10px;
+}
+
 .teams {
+  position: relative;
   display: flex;
   justify-content: center;
   margin: 20px 30px;
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+.teams.loading {
+  transition: opacity 0s;
+  animation: pulsing 1.5s infinite ease-in-out;
 }
 
 .teams .team {
@@ -51,8 +89,9 @@ html, body {
   text-align: center;
 }
 
-.teams .team:first-of-type {
-  border-right: 2px solid #681e1e;
+.teams .team:last-of-type {
+  border-left: 2px solid #222222;
+  border-left-style: dashed;
 }
 
 .teams .team .points {
@@ -73,6 +112,7 @@ html, body {
   border-radius: 10px;
   transition: transform .5s;
   transform: scale(1) translateX(0);
+  box-shadow: 3px 3px 0px rgb(65, 65, 65);
 }
 
 .color.left.lower {
@@ -146,13 +186,19 @@ html, body {
   border: none;
   font-size: 1.5rem;
   padding: 10px 20px;
-  background: white;
-  color: black;
+  background: rgb(155, 11, 184);
+  color: white;
   border-radius: 10px;
+  box-shadow: 3px 3px 0px rgb(103, 9, 122);
 }
 
 .init button:hover {
-  background: #d3d3d3;
+  background: rgb(133, 8, 158);
+}
+
+.init button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 footer {
@@ -161,6 +207,7 @@ footer {
   font-size: 0.9rem;
   color: #bbbbbb;
   font-weight: 300;
+  margin-bottom: 30px;
 }
 
 a {

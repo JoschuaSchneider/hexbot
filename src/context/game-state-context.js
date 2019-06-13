@@ -5,6 +5,7 @@ import { getMultipleColors } from "../utils/hexbot"
 export const GameStateContext = createContext({})
 
 const initialGameState = {
+  error: false,
   teamSize: 5,
   colorsA: [],
   colorsB: [],
@@ -22,12 +23,13 @@ const reduceGameState = (state, action) => {
         ...state,
         colorsA: action.colorsA,
         colorsB: action.colorsB,
-        ready: true
+        ready: true,
+        error: false
       }
     case "setPlaying":
       return { ...state, playing: true }
     case "reset":
-      return { ...initialGameState }
+      return { ...initialGameState, error: action.error }
     case "setScores":
       return { ...state, scores: action.scores }
     case "showWinner":
@@ -46,14 +48,18 @@ export function GameStateProvider(props) {
   const [state, dispatch] = useReducer(reduceGameState, initialGameState)
 
   const initGame = useCallback(async () => {
-    dispatch({ type: "reset" })
-    const colors = await getMultipleColors(state.teamSize * 2)
+    dispatch({ type: "reset", error: false })
+    try {
+      const colors = await getMultipleColors(state.teamSize * 2)
 
-    dispatch({
-      type: "setColors",
-      colorsA: colors.slice(0, state.teamSize),
-      colorsB: colors.slice(state.teamSize)
-    })
+      dispatch({
+        type: "setColors",
+        colorsA: colors.slice(0, state.teamSize),
+        colorsB: colors.slice(state.teamSize)
+      })
+    } catch (e) {
+      dispatch({ type: "reset", error: true })
+    }
   }, [state.teamSize])
 
   const start = useCallback(() => {

@@ -43,6 +43,7 @@ function Game() {
   const {
     colorsA,
     colorsB,
+    error,
     ready,
     initGame,
     start,
@@ -72,7 +73,8 @@ function Game() {
           Highest average value wins a point, most total points win.
         </div>
       </header>
-      <div className="teams">
+      {error && <div className="status">Hexbot API is down :(</div>}
+      <div className={`teams ${!ready && "loading"}`}>
         <div className="team">
           <div className="title">Hexbot A</div>
           {!ready && (
@@ -104,7 +106,9 @@ function Game() {
       </div>
       <div className="init">
         {showWinner && <button onClick={initGame}>Generate new Teams</button>}
-        {!showWinner && <button onClick={next}>Compare next</button>}
+        {!showWinner && ready && <button onClick={next}>Compare score</button>}
+        {error && <button onClick={initGame}>Retry</button>}
+        {!error && !ready && <button disabled>Loading</button>}
       </div>
       <footer>
         Made by <a href="https://joschuaschneider.de">Joschua Schneider</a> |{" "}
