@@ -1,0 +1,168 @@
+* {
+  font-family: Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: rgb(15, 15, 32);
+}
+
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.info .title {
+  font-size: 2.3rem;
+  margin: 20px;
+}
+
+.info .sub-title {
+  max-width: 500px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgb(224, 224, 224);
+  font-weight: 300;
+}
+
+.teams {
+  display: flex;
+  justify-content: center;
+  margin: 20px 30px;
+}
+
+.teams .team {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+}
+
+.teams .team .title {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.teams .team:first-of-type {
+  border-right: 2px solid #681e1e;
+}
+
+.teams .team .points {
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.color {
+  position: relative;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  transition: transform .5s;
+  transform: scale(1) translateX(0);
+}
+
+.color.left.lower {
+  opacity: 0.2;
+  transform: scale(0.8) translateX(-20px);
+}
+
+.color.right.lower {
+  opacity: 0.2;
+  transform: scale(0.8) translateX(20px);
+}
+
+.color.greater {
+  transform: scale(1.1) translateX(0px);
+}
+
+.color .hex {
+  margin-top: auto;
+  background: rgba(0,0,0,.5);
+  text-align: center;
+  padding: 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.color.left .label {
+  content: ' ';
+  position: absolute;
+  transform: translateY(-50%) translateX(-100%);
+  top: 50%;
+  left: -30px;
+}
+
+.color.right .label {
+  content: ' ';
+  position: absolute;
+  transform: translateY(-50%) translateX(100%);
+  top: 50%;
+  right: -30%;
+}
+
+.color.left .label div {
+  text-align: right;
+}
+
+.color.right .label div {
+  text-align: left;
+}
+
+.color .label div {
+  padding: 5px;
+}
+
+.color .label .red {
+  color: red;
+}
+.color .label .green {
+  color: rgb(27, 167, 27);
+}
+.color .label .blue {
+  color: rgb(31, 67, 231);
+}
+
+.init {
+  display: flex;
+  justify-content: center;
+}
+
+.init button {
+  cursor: pointer;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  background: white;
+  color: black;
+  border-radius: 10px;
+}
+
+.init button:hover {
+  background: #d3d3d3;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  color: #bbbbbb;
+  font-weight: 300;
+}
+
+a {
+  color: rgb(116, 68, 194);
+}
